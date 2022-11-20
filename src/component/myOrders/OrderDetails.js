@@ -76,22 +76,6 @@ const OrderDetails = () => {
             </p>
           </div>
 
-          <div>
-            <h1>Amount</h1>
-            <p>
-              <b>Items Total</b>₹{order.itemsPrice}
-            </p>
-            <p>
-              <b>Shipping Charges</b>₹{order.shippingCharges}
-            </p>
-            <p>
-              <b>Tax</b>₹{order.taxPrice}
-            </p>
-            <p>
-              <b>Total Amount</b>₹{order.totalAmount}
-            </p>
-          </div>
-
           <article>
             <h1>Ordered Items</h1>
             <div>
@@ -115,6 +99,24 @@ const OrderDetails = () => {
                 <span>{order.orderItems.burgerWithFries.price}</span>
               </div>
             </div>
+            <div>
+              <h4>Items Total</h4>
+              <div>
+                <span>{order.itemsPrice}</span>
+              </div>
+            </div>
+            <div>
+              <h4>Shipping Charges</h4>
+              <div>
+                <span>{order.shippingCharges}</span>
+              </div>
+            </div>
+            <div>
+              <h4>Tax</h4>
+              <div>
+                <span>{order.taxPrice}</span>
+              </div>
+            </div>
 
             <div>
               <h4
@@ -122,14 +124,14 @@ const OrderDetails = () => {
                   fontWeight: 800,
                 }}
               >
-                Sub Total
+                Total Amount
               </h4>
               <div
                 style={{
                   fontWeight: 800,
                 }}
               >
-                ₹{order.itemsPrice}
+                ₹{order.totalAmount}
               </div>
             </div>
           </article>
