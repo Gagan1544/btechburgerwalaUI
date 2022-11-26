@@ -1,12 +1,15 @@
 @import "colors";
 nav {
-  height: 5rem;
+  height: 4rem;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.229);
   background-color: white;
+  // z-index: 10;
+  // position: fixed;
+  // width: 100%;
   > div {
     display: flex;
     align-items: center;

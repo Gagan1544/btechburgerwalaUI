@@ -97,49 +97,70 @@ const Cart = () => {
   }, [orderItems, subTotal, tax, shippingCharges, total]);
   return (
     <section className="cart">
-      <main>
-        <CartItem
-          title={"Cheese Burger"}
-          img={burger1}
-          value={cheeseBurger}
-          increment={() => increment(1)}
-          decrement={() => decrement(1)}
-        />
-        <CartItem
-          title={"Veg Cheese Burger"}
-          img={burger2}
-          value={vegCheeseBurger}
-          increment={() => increment(2)}
-          decrement={() => decrement(2)}
-        />
-        <CartItem
-          title={"Cheese Burger with French Fries"}
-          img={burger3}
-          value={burgerWithFries}
-          increment={() => increment(3)}
-          decrement={() => decrement(3)}
-        />
-
-        <article>
-          <div>
-            <h4>Sub Total</h4>
-            <p>₹{subTotal}</p>
-          </div>
-          <div>
-            <h4>Tax</h4>
-            <p>₹{tax}</p>
-          </div>
-          <div>
-            <h4>Shipping Charges</h4>
-            <p>₹{shippingCharges}</p>
-          </div>{" "}
-          <div>
-            <h4>Total</h4>
-            <p>₹{total}</p>
-          </div>
-          <Link to="/shipping">Checkout</Link>
-        </article>
-      </main>
+      {cheeseBurger || vegCheeseBurger || burgerWithFries ? (
+        <main>
+          {cheeseBurger ? (
+            <CartItem
+              title={"Cheese Burger"}
+              img={burger1}
+              value={cheeseBurger}
+              increment={() => increment(1)}
+              decrement={() => decrement(1)}
+            />
+          ) : (
+            []
+          )}
+          {vegCheeseBurger ? (
+            <CartItem
+              title={"Veg Cheese Burger"}
+              img={burger2}
+              value={vegCheeseBurger}
+              increment={() => increment(2)}
+              decrement={() => decrement(2)}
+            />
+          ) : (
+            []
+          )}
+          {burgerWithFries ? (
+            <CartItem
+              title={"Cheese Burger with French Fries"}
+              img={burger3}
+              value={burgerWithFries}
+              increment={() => increment(3)}
+              decrement={() => decrement(3)}
+            />
+          ) : (
+            []
+          )}
+          <article>
+            <div>
+              <h4>Sub Total</h4>
+              <p>₹{subTotal}</p>
+            </div>
+            <div>
+              <h4>Tax</h4>
+              <p>₹{tax}</p>
+            </div>
+            <div>
+              <h4>Shipping Charges</h4>
+              <p>₹{shippingCharges}</p>
+            </div>{" "}
+            <div>
+              <h4>Total</h4>
+              <p>₹{total}</p>
+            </div>
+            <Link to="/shipping">Checkout</Link>
+          </article>
+        </main>
+      ) : (
+        <h2
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Please add items in cart
+        </h2>
+      )}
     </section>
   );
 };
